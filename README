@@ -122,6 +122,8 @@ NOTE: Later versions will be avaliable from userscripts.com, and will use 'one-c
 
 2.5 Click 'OK'
 
+2.6 An editor will open, copy the script from clipperz-helper.user.js into it and save the file, close the file
+
 !!VERY IMPORT, DON'T FORGET!!
 3. Add the url to the include list for the greasemonkey script
 
