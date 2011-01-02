@@ -1,0 +1,183 @@
+== How to use v0.2
+
+1. Create a special login script
+
+1.1 Determine if you can why the diect logins dont work for the website in question, using the direct logins themself is always preferable
+
+1.2 Use the bookmarklet to get the starting point for the login script, it will look like this
+
+	{"page": {"title": "Welcome to Facebook"},
+	"form": {"attributes": {"action": "https://login.facebook.com/login.php?login_attempt=1",
+	"method": "POST"},
+	"inputs": [{"type": "hidden",
+	"name": "charset_test",
+	"value": "€,´,€,´,水,Д,Є"},
+	{"type": "hidden",
+	"name": "lsd",
+	"value": "L01DN"},
+	{"type": "hidden",
+	"name": "locale",
+	"value": "en_US"},
+	{"type": "text",
+	"name": "email",
+	"value": ""},
+	{"type": "password",
+	"name": "pass",
+	"value": ""},
+	{"type": "checkbox",
+	"name": "persistent",
+	"value": "1"},
+	{"type": "hidden",
+	"name": "default_persistent",
+	"value": "0"},
+	{"type": "hidden",
+	"name": "charset_test",
+	"value": "€,´,€,´,水,Д,Є"},
+	{"type": "hidden",
+	"name": "lsd",
+	"value": "L01DN"}]},
+	"version": "0.2.3"}
+
+To make things easier I have put each section on one line
+
+	{"page": {"title": "Welcome to Facebook"},
+	"form": {"attributes": {"action": "https://login.facebook.com/login.php?login_attempt=1",
+	"method": "POST"},
+	"inputs": [
+	{"type": "hidden", "name": "charset_test", "value": "€,´,€,´,水,Д,Є"},
+	{"type": "hidden", "name": "lsd", "value": "L01DN"},
+	{"type": "hidden", "name": "locale", "value": "en_US"},
+	{"type": "text", "name": "email", "value": ""},
+	{"type": "password", "name": "pass", "value": ""},
+	{"type": "checkbox", "name": "persistent", "value": "1"},
+	{"type": "hidden", "name": "default_persistent", "value": "0"},
+	{"type": "hidden", "name": "charset_test", "value": "€,´,€,´,水,Д,Є"},
+	{"type": "hidden", "name": "lsd", "value": "L01DN"}
+	]},
+	"version": "0.2.3"}
+
+1.3 Cut out everthing we dont need, start with the sections listed as hidden, we dont want these
+
+	{"page": {"title": "Welcome to Facebook"},
+	"form": {"attributes": {"action": "https://login.facebook.com/login.php?login_attempt=1",
+	"method": "POST"},
+	"inputs": [
+	{"type": "text", "name": "email", "value": ""},
+	{"type": "password", "name": "pass", "value": ""},
+	{"type": "checkbox", "name": "persistent", "value": "1"}
+	]},
+	"version": "0.2.3"}
+
+1.4 Now we need to change the method to "GET"
+
+	{"page": {"title": "Welcome to Facebook"},
+	"form": {"attributes": {"action": "https://login.facebook.com/login.php?login_attempt=1",
+	"method": "GET"},
+	"inputs": [
+	{"type": "text", "name": "email", "value": ""},
+	{"type": "password", "name": "pass", "value": ""},
+	{"type": "checkbox", "name": "persistent", "value": "1"}
+	]},
+	"version": "0.2.3"}
+
+1.5 And we need to change the action to point to 'https://helper.clipperz.com/'
+
+	{"page": {"title": "Welcome to Facebook"},
+	"form": {"attributes": {"action": "https://helper.clipperz.com/",
+	"method": "GET"},
+	"inputs": [
+	{"type": "text", "name": "email", "value": ""},
+	{"type": "password", "name": "pass", "value": ""},
+	{"type": "checkbox", "name": "persistent", "value": "1"}
+	]},
+	"version": "0.2.3"}
+
+1.6 We add the passphrase input
+
+	{"page": {"title": "Welcome to Facebook"},
+	"form": {"attributes": {"action": "https://helper.clipperz.com/",
+	"method": "GET"},
+	"inputs": [
+	{"type": "password", "name": "passphrase", "value": ""},
+	{"type": "text", "name": "email", "value": ""},
+	{"type": "password", "name": "pass", "value": ""},
+	{"type": "checkbox", "name": "persistent", "value": "1"}
+	]},
+	"version": "0.2.3"}
+
+1.7 Add the 'site' field
+
+	{"page": {"title": "Welcome to Facebook"},
+	"form": {"attributes": {"action": "https://helper.clipperz.com/",
+	"method": "GET"},
+	"inputs": [
+	{"type": "text", "name": "site", "value": "http://www.facebook.com/"},
+	{"type": "password", "name": "passphrase", "value": ""},
+	{"type": "text", "name": "email", "value": ""},
+	{"type": "password", "name": "pass", "value": ""},
+	{"type": "checkbox", "name": "persistent", "value": "1"}
+	]},
+	"version": "0.2.3"}
+
+1.8 And preceed everything that isnt 'passphrase', 'submit' or 'site' with a '$'
+
+	{"page": {"title": "Welcome to Facebook"},
+	"form": {"attributes": {"action": "https://helper.clipperz.com/",
+	"method": "GET"},
+	"inputs": [
+	{"type": "text", "name": "site", "value": "http://www.facebook.com/"},
+	{"type": "password", "name": "passphrase", "value": ""},
+	{"type": "text", "name": "$email", "value": ""},
+	{"type": "password", "name": "$pass", "value": ""},
+	{"type": "checkbox", "name": "$persistent", "value": "1"}
+	]},
+	"version": "0.2.3"}
+
+Here is a template of what you want
+
+
+NOTE: Now, it is posible that this would be enough, but it is doesn't we might need to rename some parts and include a submit section, (this is an advanced topic, read the source code, look at some of the examples below or ask on the clipperz google group for help)
+
+1.9 Put the script in as a clipperz direct login script on clipperz
+
+2. Install the greasemonkey script (You only have to do this once)
+
+NOTE: Later versions will be avaliable from userscripts.com, and will use 'one-click' installs
+
+2.1 In firefox, goto 'Tools' -> 'Greasemonkey' -> 'New User Script'
+
+2.2 Under Name put 'clipperz-helper'
+
+2.3 Under Namespace put 'http://othrayte.net'
+
+2.4 Under discription put 'Helps clipperz direct-logins work on websites that use session ids or complex forms'
+
+2.5 Under include put
+
+https://helper.clipperz.com/*
+*Clipperz-helper.*.login*
+
+2.6 Click 'OK'
+
+2.7 An editor will open, copy the script from clipperz-helper.user.js into it and save the file, close the file
+
+All done
+
+NOTE: As of version 0.2 step 3 is no longer required
+
+
+== Example direct login scripts for v0.2
+
+{"page": {"title": "trakt.tv"},
+"form": {"attributes": {"action": "https://helper.clipperz.com/",
+"method": "GET"},
+"inputs": [
+{"type": "text", "name": "site", "value": "http://trakt.tv/"},
+{"type": "password", "name": "passphrase", "value": ""},
+{"type": "text", "name": "$signin-username", "value": ""},
+{"type": "password", "name": "$signin-password", "value": ""},
+{"type": "checkbox", "name": "$persistent", "value": "1"}
+{"type": "submit", "name": "submit", "value": "signin-submit"}
+]},
+"version": "0.2.3"}
+
