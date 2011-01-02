@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           clipperz Helper
-// @namespace      othrayte
+// @namespace      http://othrayte.net
 // @description    helps clipperz login to some websites that use session ids
 // @include        https://www.google.com/*
 // ==/UserScript==
