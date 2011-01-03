@@ -263,23 +263,23 @@ NOTE: As of version 0.2 step 3 is no longer required
 "version": "0.2.3"}
 
 
--- Digg script (untested, high chance of failure)
+-- Digg script (confirmed working)
 
 {"page": {"title": "Digg"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
 "method": "GET"},
 "inputs": [
-{"type": "hidden", "name": "site", "value": "http://digg.com/news/."},
+{"type": "hidden", "name": "site", "value": "http://digg.com/login"},
 {"type": "password", "name": "passphrase", "value": ""},
 {"type": "text", "name": "$ident", "value": ""},
 {"type": "password", "name": "$password", "value": ""},
 {"type": "checkbox", "name": "$remember-me", "value": "1"},
-{"type": "submit", "name": "submit", "value": "login"}
+{"type": "submit", "name": "submit", "value": "login-button"}
 ]},
 "version": "0.2.3"}
 
 
--- Launchpad script (untested)
+-- Launchpad script (confirmed working)
 
 {"page": {"title": "Launchpad"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
