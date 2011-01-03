@@ -231,16 +231,14 @@ NOTE: As of version 0.2 step 3 is no longer required
 "version": "0.2.3"}
 
 
--- Google Groups script (untested)
+-- Google Groups script (confirmed working)
 
 {"page": {"title": "Google Groups"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
 "method": "GET"},
 "inputs": [
-{"type": "hidden", "name": "site", "value": "https://www.google.com/accounts/ServiceLoginAuth"},
+{"type": "hidden", "name": "site", "value": "https://www.google.com/accounts/ServiceLogin?passive=true&hl=en&service=groups2&continue=http://groups.google.com/"},
 {"type": "password", "name": "passphrase", "value": ""},
-{"type": "hidden", "name": "continue", "value": "http://groups.google.com/"},
-{"type": "hidden", "name": "service", "value": "groups2"},
 {"type": "text", "name": "$Email", "value": ""},
 {"type": "password", "name": "$Passwd", "value": ""},
 {"type": "checkbox", "name": "$PersistentCookie", "value": "1"},
@@ -249,17 +247,14 @@ NOTE: As of version 0.2 step 3 is no longer required
 "version": "0.2.3"}
 
 
--- Google Reader script (untested)
+-- Google Reader script (confirmed working)
 
 {"page": {"title": "Google Reader"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
 "method": "GET"},
 "inputs": [
-{"type": "hidden", "name": "site", "value": "https://www.google.com/accounts/ServiceLoginAuth"},
+{"type": "hidden", "name": "site", "value": "https://www.google.com/accounts/ServiceLogin?service=reader&continue=https://www.google.com/reader/&followup=https://www.google.com/reader/"},
 {"type": "password", "name": "passphrase", "value": ""},
-{"type": "hidden", "name": "continue", "value": "http://www.google.com/reader"},
-{"type": "hidden", "name": "followup", "value": "http://www.google.com/reader"},
-{"type": "hidden", "name": "service", "value": "reader"},
 {"type": "text", "name": "$Email", "value": ""},
 {"type": "password", "name": "$Passwd", "value": ""},
 {"type": "checkbox", "name": "$PersistentCookie", "value": "1"},
