@@ -170,7 +170,7 @@ NOTE: As of version 0.2 step 3 is no longer required
 -- This script is presented as a starting point
 
 	{"page": {"title": "%%Title in clipperz%%"},
-	"form": {"attributes": {"action": "%%Website where you login%%",
+	"form": {"attributes": {"action": "https://helper.clipperz.com/",
 	"method": "GET"},
 	"inputs": [
 	{"type": "hidden", "name": "site", "value": "%%Website where you login%%"},
@@ -198,4 +198,3 @@ NOTE: As of version 0.2 step 3 is no longer required
 {"type": "submit", "name": "submit", "value": "signin-submit"}
 ]},
 "version": "0.2.3"}
-
