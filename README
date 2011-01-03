@@ -199,7 +199,7 @@ NOTE: As of version 0.2 step 3 is no longer required
 ]},
 "version": "0.2.3"}
 
--- Google Account script (untested)
+-- Google Account script (confirmed working)
 
 {"page": {"title": "Google Account"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
@@ -215,16 +215,14 @@ NOTE: As of version 0.2 step 3 is no longer required
 "version": "0.2.3"}
 
 
--- Gmail script (untested)
+-- Gmail script (confirmed working)
 
 {"page": {"title": "Gmail"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
 "method": "GET"},
 "inputs": [
-{"type": "hidden", "name": "site", "value": "https://www.google.com/accounts/ServiceLoginAuth"},
+{"type": "hidden", "name": "site", "value": "https://www.google.com/accounts/ServiceLogin?service=mail&continue=http://mail.google.com/mail/"},
 {"type": "password", "name": "passphrase", "value": ""},
-{"type": "hidden", "name": "continue", "value": "https://mail.google.com/mail/?"},
-{"type": "hidden", "name": "service", "value": "mail"},
 {"type": "text", "name": "$Email", "value": ""},
 {"type": "password", "name": "$Passwd", "value": ""},
 {"type": "checkbox", "name": "$PersistentCookie", "value": "1"},
@@ -253,7 +251,7 @@ NOTE: As of version 0.2 step 3 is no longer required
 
 -- Google Reader script (untested)
 
-{"page": {"title": "Google Groups"},
+{"page": {"title": "Google Reader"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
 "method": "GET"},
 "inputs": [
