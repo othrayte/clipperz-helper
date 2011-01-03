@@ -165,6 +165,22 @@ All done
 
 NOTE: As of version 0.2 step 3 is no longer required
 
+== Skelatin script
+
+-- This script is presented as a starting point
+
+	{"page": {"title": "%%Title in clipperz%%"},
+	"form": {"attributes": {"action": "%%Website where you login%%",
+	"method": "GET"},
+	"inputs": [
+	{"type": "hidden", "name": "site", "value": "%%Website where you login%%"},
+	{"type": "password", "name": "passphrase", "value": ""},
+	{"type": "text", "name": "$%%Name of username or email field%%", "value": ""},
+	{"type": "password", "name": "$%%Name of password field%%", "value": ""},
+	{"type": "checkbox", "name": "$%%Name of a checkbox field%%", "value": "1"},
+	{"type": "submit", "name": "submit", "value": "%%Name of a submit button%%"}
+	]},
+	"version": "0.2.3"}
 
 == Example direct login scripts for v0.2
 
