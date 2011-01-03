@@ -44,9 +44,12 @@ if (GM_getValue("debug")) {
 // Remove unwanted old encrypted data
 trace("Cleaning up");
 var keys = GM_listValues();
-var ts = (new Date().getTime()/1000-45)>>5; // Older than ~45sec
+var ts = ((new Date().getTime()/1000)-45)>>5; // Older than ~45sec
 for (var i=0, key=null; key=keys[i]; i++) {
-	if (key<ts) GM_deleteValue(key);
+	if (/[0-9a-z]{16}[0-9]{8,9}/i.test(key)) {	
+		trace("Delete key:"+key.substring(16)+"? -> "+(key.substring(16)<ts));
+		if (key.substring(16)<ts) GM_deleteValue(key);
+	}
 }
 
 if (/^https:\/\/helper\.clipperz\.com/i.test(location)) { // Check if url is for stage 1
@@ -78,22 +81,22 @@ if (/^https:\/\/helper\.clipperz\.com/i.test(location)) { // Check if url is for
 	trace("Entering Stage 2");
 
 	var timestamp = (new Date().getTime()/1000)>>5; // Stage two time stamp
-	var l = location+""; // Store 'location' as a string;
-	var unique = l.replace(/^.*Clipperz-helper\.([a-z0-9]{16})\.login.*$/i,"$1"); // Parse unique string out of url
+	//var l = location+""; // Store 'location' as a string;
+	var unique = location.hash.replace(/^.*Clipperz-helper\.([a-z0-9]{16})\.login.*$/i,"$1"); // Parse unique string out of url
 	trace("unique: "+unique);
 
 	// Retrive encrypted data
-	var enc = GM_getValue(timestamp, null);
+	var enc = GM_getValue(unique+timestamp, null);
 	trace("enc: "+enc);
 
 	if (enc==null) { // Check if we got anything
 		// Go back to stage 1
 		trace("Data not transfered, going back to stage 1");
 		history.back();
-	} else {
-		// Remove data from browser as we have it now
-		GM_deleteValue(timestamp);
-		
+	} else {		
+		// Remove unique data from url
+		window.location.hash = "";
+
 		// Decrypt the data
 		var dat = decrypt(enc, unique);
 		trace("dat: "+dat);
@@ -117,7 +120,7 @@ function storeData() {
 
 	// Timestamp 5 sec in the future to an acuracy of 2^5=32 secs, 5 sec accounts for time between stages
 	var timestamp = (new Date().getTime()/1000+5)>>5;
-	if (GM_getValue(timestamp,null)!=null) { // If there is another login going
+	if (GM_getValue(unique+timestamp,null)!=null) { // If there is another login going
 		document.body.innerHTML = "Clipperz-helper, waiting for another login to complete or expire";
 		setTimeout(storeData, 100); // Try again in another 100ms
 		return;
@@ -130,7 +133,7 @@ function storeData() {
 	trace("enc: "+enc);
 	
 	// Storing encrypted data
-	GM_setValue(timestamp, enc);
+	GM_setValue(unique+timestamp, enc);
 
 	// Prepare stage 2 url
 	s2URI = args['site']+"#Clipperz-helper."+unique+".login"; // Note to self: add a dot to 'site's that end with a '/'
