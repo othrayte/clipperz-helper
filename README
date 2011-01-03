@@ -294,7 +294,7 @@ NOTE: As of version 0.2 step 3 is no longer required
 "version": "0.2.3"}
 
 
--- Myspace script (untested)
+-- Myspace script (confirmed working)
 
 {"page": {"title": "Myspace"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
@@ -310,7 +310,7 @@ NOTE: As of version 0.2 step 3 is no longer required
 "version": "0.2.3"}
 
 
--- github script (untested)
+-- github script (confirmed working)
 
 {"page": {"title": "github"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
@@ -318,13 +318,13 @@ NOTE: As of version 0.2 step 3 is no longer required
 "inputs": [
 {"type": "hidden", "name": "site", "value": "https://github.com/login"},
 {"type": "password", "name": "passphrase", "value": ""},
-{"type": "text", "name": "$login", "value": ""},
+{"type": "text", "name": "$login_field", "value": ""},
 {"type": "password", "name": "$password", "value": ""},
 {"type": "submit", "name": "submit", "value": "commit"}
 ]},
 "version": "0.2.3"}
 
--- MochiGames (untested)
+-- MochiGames (confirmed working with v0.2.1+)
 
 {"page": {"title": "MochiGames"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
@@ -338,7 +338,7 @@ NOTE: As of version 0.2 step 3 is no longer required
 "version": "0.2.3"}
 
 
--- linuxforums.org (untested)
+-- linuxforums.org (confirmed working)
 
 {"page": {"title": "linuxforums.org"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
@@ -352,22 +352,7 @@ NOTE: As of version 0.2 step 3 is no longer required
 "version": "0.2.3"}
 
 
--- Adobe (untested)
-
-{"page": {"title": "Adobe"},
-"form": {"attributes": {"action": "https://helper.clipperz.com/",
-"method": "GET"},
-"inputs": [
-{"type": "hidden", "name": "site", "value": "https://www.adobe.com/cfusion/membership/index.cfm?nf=1&nl=1"},
-{"type": "password", "name": "passphrase", "value": ""},
-{"type": "text", "name": "$username", "value": ""},
-{"type": "password", "name": "$up_password", "value": ""},
-{"type": "checkbox", "name": "$rememberMe", "value": "1"}
-]},
-"version": "0.2.3"}
-
-
--- ohloh script (untested)
+-- ohloh script (confirmed working)
 
 {"page": {"title": "ohloh"},
 "form": {"attributes": {"action": "https://helper.clipperz.com/",
