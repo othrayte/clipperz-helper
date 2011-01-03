@@ -372,3 +372,18 @@ NOTE: As of version 0.2 step 3 is no longer required
 {"type": "checkbox", "name": "$rememberMe", "value": "1"}
 ]},
 "version": "0.2.3"}
+
+
+-- ohloh script (untested)
+
+{"page": {"title": "ohloh"},
+"form": {"attributes": {"action": "https://helper.clipperz.com/",
+"method": "GET"},
+"inputs": [
+{"type": "hidden", "name": "site", "value": "https://www.ohloh.net/sessions/new"},
+{"type": "password", "name": "passphrase", "value": ""},
+{"type": "text", "name": "$login", "value": ""},
+{"type": "password", "name": "$password", "value": ""},
+{"type": "checkbox", "name": "$login_remember_me", "value": "1"}
+]},
+"version": "0.2.3"}
